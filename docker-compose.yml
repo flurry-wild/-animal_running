@@ -27,7 +27,7 @@ services:
       - ./project:/var/www/html
       - ./docker/config/php/php.ini:/usr/local/etc/php/php.ini
   database:
-    image: mysql:8
+    image: mysql:5.7
     container_name: zoo-db
     restart: always
     environment:
