@@ -19,7 +19,7 @@ services:
       - ./docker/config/php/php.ini:/usr/local/etc/php/php.ini
   database:
     image: mysql:8
-    container_name: tasklist-db
+    container_name: zoo-db
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: secret

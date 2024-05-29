@@ -102,9 +102,3 @@ RUN a2enmod rewrite headers
 # Cleanup
 RUN rm -rf /usr/src/*
 
-ENV NODE_VERSION=12.14.1
-
-RUN curl -L -o /tmp/nodejs.tar.gz https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz  && tar xfvz /tmp/nodejs.tar.gz -C /usr/local --strip-components=1  && rm -f /tmp/nodejs.tar.gz
-
-RUN apt-get update && apt-get install -y --no-install-recommends npm
-RUN npm install -g npm@6.13.4
