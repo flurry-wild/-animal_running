@@ -33,7 +33,7 @@ class AnimalService
         }
     }
 
-    private function eat(Animal $animal, EnclosureCollection $enclosureCollection, $attempt)
+    public function eat(Animal $animal, EnclosureCollection $enclosureCollection, $attempt)
     {
         if (! $animal->living) {
             return false;
