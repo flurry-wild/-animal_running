@@ -4,6 +4,7 @@ namespace App\Animals;
 
 use Illuminate\Database\Eloquent\Model;
 use Exception;
+use Illuminate\Support\Facades\Log;
 use ReflectionClass;
 
 class Animal extends Model
@@ -61,10 +62,10 @@ class Animal extends Model
             'living' => true
         ]);
 
-        echo sprintf(
+        static::log(sprintf(
             "Новое животное $animal->nickname, %s, $animal->gender, Сытость:$animal->satiety\n",
             static::getShortName()
-        );
+        ));
 
         return $animal;
     }
@@ -91,12 +92,12 @@ class Animal extends Model
     public function incAge()
     {
         $this->update(['age' => ++$this->age ]);
-        echo sprintf("Животное $this->nickname, %s постарело до возраста $this->age\n", static::getShortName());
+        $this->log(sprintf("Животное $this->nickname, %s постарело до возраста $this->age\n", static::getShortName()));
 
         if ($this->age > static::MAX_AGE) {
             $this->update(['living' => false]);
 
-            echo "Животное умерло от старости:(\n";
+            $this->log("Животное умерло от старости:(\n");
         }
     }
 
@@ -107,12 +108,19 @@ class Animal extends Model
         }
 
         $this->update(['satiety' => $this->satiety - rand(1, 10)]);
-        echo "Животное потратило энергию, его сытость уменьшилась до $this->satiety\n";
+        $this->log("Животное потратило энергию, его сытость уменьшилась до $this->satiety\n");
 
         if ($this->satiety < 1) {
             $this->update(['living' => false]);
 
-            echo "Животное умерло от голода:(\n";
+            $this->log("Животное умерло от голода:(\n");
         }
+    }
+
+    public static function log(string $message)
+    {
+        echo $message;
+
+        Log::channel(strtolower(static::getShortName()))->info($message);
     }
 }

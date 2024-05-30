@@ -28,7 +28,7 @@ class AnimalService
                 }
 
                 $animal->givesBirth();
-                echo "\n";
+                $animal->log("\n");
             }
         }
     }
@@ -59,12 +59,12 @@ class AnimalService
                 $animal->update(['satiety' => $animal->satiety + $needFood]);
             });
 
-            echo "Животное поело, его сытость увеличилась до $animal->satiety\n";
+            $animal->log("Животное поело, его сытость увеличилась до $animal->satiety\n");
 
             return true;
         }
 
-        echo "Попытка № $attempt провалена\n";
+        $animal->log("Попытка № $attempt провалена, переходим в следующий вальер\n");
         return false;
     }
 }
