@@ -2,12 +2,13 @@
 
 namespace App\Animals;
 
+use Illuminate\Database\Eloquent\Collection;
 use IteratorAggregate;
 use Traversable;
 
 class AnimalCollection implements IteratorAggregate
 {
-    public array $animals;
+    public Collection $animals;
     private array $animalClasses = [
         Gazzelle::class, Bear::class, Crocodile::class, Penguin::class, Parrot::class, Tarantula::class,
         HouseSpider::class, Wolf::class, Platypus::class, Snake::class, Cobra::class
@@ -15,14 +16,18 @@ class AnimalCollection implements IteratorAggregate
 
     public function __construct()
     {
+        $this->animals = new Collection();
+
         if (empty(Animal::get()->toArray())) {
             foreach ($this->animalClasses as $animalClass) {
                 /** @var Animal $animalClass::createOne() */
-                $this->animals[] = $animalClass::createOne();
+                $this->animals->push($animalClass::createOne());
             }
         } else {
             foreach ($this->animalClasses as $animalClass) {
-                $this->animals[] = $animalClass::first();
+                foreach ($animalClass::get() as $animal) {
+                    $this->animals->push($animal);
+                }
             }
         }
     }

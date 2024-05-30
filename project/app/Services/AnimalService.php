@@ -27,6 +27,7 @@ class AnimalService
                     ++$attempt;
                 }
 
+                $animal->givesBirth();
                 echo "\n";
             }
         }

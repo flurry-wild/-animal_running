@@ -69,6 +69,25 @@ class Animal extends Model
         return $animal;
     }
 
+    public function givesBirth()
+    {
+        if (! $this->living) {
+            return;
+        }
+
+        $born = rand(0, 1);
+
+        if ($born) {
+            echo "Животное размножается\n";
+
+            if ($this->type === 'housespider') {
+                $this->type = 'houseSpider';
+            }
+            $animalClass = "App\\Animals\\".ucfirst($this->type);
+            $animalClass::createOne();
+        }
+    }
+
     public function incAge()
     {
         $this->update(['age' => ++$this->age ]);
@@ -83,6 +102,10 @@ class Animal extends Model
 
     public function decSatiety()
     {
+        if (! $this->living) {
+            return;
+        }
+
         $this->update(['satiety' => $this->satiety - rand(1, 10)]);
         echo "Животное потратило энергию, его сытость уменьшилась до $this->satiety\n";
 
