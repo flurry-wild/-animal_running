@@ -9,3 +9,5 @@
 Как поднять на linux:
 Клонировать репозиторий, в папке прописать <pre>make install</pre>
 </p>
+<img src="screenshots/screen1.png">
+<img src="screenshots/screen2.png">
