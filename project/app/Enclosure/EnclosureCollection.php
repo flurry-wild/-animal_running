@@ -16,7 +16,7 @@ class EnclosureCollection implements IteratorAggregate
     {
         $this->items = new Collection();
 
-        if (empty(Enclosure::get()->toArray())) {
+        if (Enclosure::get()->count() < 1) {
             for ($i = 0; $i < self::COUNT; $i++) {
                 $this->items->push(Enclosure::createOne(
                     rand(0, 1),

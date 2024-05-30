@@ -18,7 +18,7 @@ class AnimalCollection implements IteratorAggregate
     {
         $this->animals = new Collection();
 
-        if (empty(Animal::get()->toArray())) {
+        if (Animal::get()->count() < 1) {
             foreach ($this->animalClasses as $animalClass) {
                 /** @var Animal $animalClass::createOne() */
                 $this->animals->push($animalClass::createOne());
