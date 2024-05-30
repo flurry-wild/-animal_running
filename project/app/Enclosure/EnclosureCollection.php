@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Collection;
 
 class EnclosureCollection implements IteratorAggregate
 {
-    const COUNT = 3;
+    const COUNT = 5;
 
     public Collection $items;
 

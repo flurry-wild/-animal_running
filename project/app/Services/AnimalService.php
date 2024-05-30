@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class AnimalService
 {
-    const NUMBER_EATING_ATTEMPTS = 3;
+    const NUMBER_EATING_ATTEMPTS = 5;
 
     public function run(AnimalCollection $animalCollection, EnclosureCollection $enclosureCollection)
     {
