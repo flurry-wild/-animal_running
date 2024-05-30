@@ -39,7 +39,7 @@ class AnimalService
             return false;
         }
 
-        echo "Еда, Попытка № $attempt\n";
+        $animal->log("Еда, Попытка № $attempt\n");
 
         /**
          * @var EnclosureCollection $enclosureCollection
