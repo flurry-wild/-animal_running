@@ -76,10 +76,10 @@ class Animal extends Model
             return;
         }
 
-        $born = rand(0, 1);
+        $born = rand(1, 4);
 
-        if ($born) {
-            echo "Животное размножается\n";
+        if ($born === 4) {
+            $this->log("Животное размножается\n");
 
             if ($this->type === 'housespider') {
                 $this->type = 'houseSpider';
