@@ -54,11 +54,62 @@ return [
             'ignore_exceptions' => false,
         ],
 
-        'single' => [
+        'bear' => [
             'driver' => 'single',
-            'path' => storage_path('logs/laravel.log'),
+            'path' => storage_path('logs/bear.log'),
             'level' => env('LOG_LEVEL', 'debug'),
         ],
+        'gazzelle' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/gazzelle.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+        ],
+        'crocodile' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/crocodile.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+        ],
+        'penguin' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/penguin.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+        ],
+        'parrot' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/parrot.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+        ],
+        'tarantula' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/tarantula.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+        ],
+        'housespider' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/housespider.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+        ],
+        'wolf' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/wolf.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+        ],
+        'platypus' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/platypus.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+        ],
+        'snake' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/snake.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+        ],
+        'cobra' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/cobra.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+        ],
+
 
         'daily' => [
             'driver' => 'daily',
